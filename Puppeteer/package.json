@@ -1,0 +1,22 @@
+{
+  "name": "Puppeteer",
+  "version": "1.0.0",
+  "description": "使用 Puppeteer 截图的 node 服务端",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["截图", "长文截图", "Puppeteer截图"],
+  "author": {
+    "name": "jsbugwang",
+    "email": "wangwenming1985@sina.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "koa": "^2.13.1",
+    "koa-static": "^5.0.0",
+    "puppeteer": "^10.2.0",
+    "uuid": "^8.3.2"
+  }
+}
