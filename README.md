@@ -6,8 +6,8 @@
 1. 启动服务
 
 ```
-$ npm i
 $ cd Puppeteer
+$ npm i
 $ node index.js 
 ```
 
