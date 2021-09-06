@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # 自动生成的文件
-public/img/
+img/
