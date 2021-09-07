@@ -17,7 +17,6 @@ router.get('/html2image', async (ctx, next) => {
     let url = ctx.request.query.url;
     let result = await html2image(url, `${staticRoot}/${imgPath}`);
     let filename = result.filename;
-    console.log(path);
     ctx.body = {
         code: 0,
         msg: 'OK',
