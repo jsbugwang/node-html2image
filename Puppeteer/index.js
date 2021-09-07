@@ -15,13 +15,14 @@ const router = new Router({
 
 router.get('/html2image', async (ctx, next) => {
     let url = ctx.request.query.url;
-    let filename = await html2image(url, `${staticRoot}/${imgPath}`);
+    let result = await html2image(url, `${staticRoot}/${imgPath}`);
+    let filename = result.filename;
     console.log(path);
     ctx.body = {
         code: 0,
         msg: 'OK',
         data: {
-            imgUrl: `${ctx.request.origin}/${imgPath}/${filename}`
+            imgUrl: `${ctx.request.origin}/${imgPath}/${filename}?size=${result.width}_${result.height}`
         }
     };
 });

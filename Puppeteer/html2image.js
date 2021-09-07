@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const { v4: uuidv4 } = require('uuid');
+const sizeOf = require('image-size')
 
 // https://stackoverflow.com/questions/51529332/puppeteer-scroll-down-until-you-cant-anymore
 async function autoScroll(page) {
@@ -16,7 +17,7 @@ async function autoScroll(page) {
           clearInterval(timer);
           resolve();
         }
-      }, 100);
+      }, 50);
     });
   });
 }
@@ -31,7 +32,7 @@ async function html2image(url, output) {
   // 设置页面大小，宽度为手机的 750px，高度无所谓
   await page.setViewport({
     width: 750,
-    height: 3000,
+    height: 100,
     deviceScaleFactor: 1,
   });
 
@@ -52,7 +53,12 @@ async function html2image(url, output) {
 
   await browser.close();
 
-  return filename;
+  let dimensions = sizeOf(path);
+
+  return {
+    filename,
+    ...dimensions,
+  };
 }
 
 // 测试 
